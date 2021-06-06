@@ -285,6 +285,11 @@ open class MusicTrackManager {
         clearHelper(kMusicEventType_MIDINoteMessage, from: "clearNoteEvents")
     }
 
+    /// Clear CC events from the track
+    public func clearControlEvents() {
+        clearHelper(kMusicEventType_MIDIChannelMessage, from: "clearControlEvents")
+    }
+
     private func clearHelper(_ targetEventType: UInt32, from functionName: String) {
         guard let track = internalMusicTrack else {
             Log("internalMusicTrack does not exist")
